@@ -1,0 +1,14 @@
+Serach Button -> 61 , 1064
+X button -> 1910, 13
+
+meetimg close button -> 1614 , 52
+close join tab -> 1849 , 101
+
+calender button -> 38 ,304
+
+join button -> 1761, 101
+mute button -> 1114 , 473
+
+pop up window join button -> 1491 , 759
+
+scroll start -> 1910 , 283
