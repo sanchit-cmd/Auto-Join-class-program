@@ -23,7 +23,7 @@ def scroll():
 
 
 
-def get_coordinates(): #function to return the corrditnate limit of the screen
+def get_coordinates(): #send the coordinate for the active meeting
     return 1242,609
 
 
