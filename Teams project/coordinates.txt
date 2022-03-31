@@ -12,3 +12,5 @@ mute button -> 1114 , 473
 pop up window join button -> 1491 , 759
 
 scroll start -> 1910 , 283
+
+color-> 147, 153, 245

@@ -1,3 +1,5 @@
 import pyautogui as pyg
+from time import sleep
 
-print(pyg.pixel(100, 100))
+sleep(5)
+print(pyg.pixel(310, 682))

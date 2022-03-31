@@ -22,9 +22,28 @@ def scroll():
     dragTo(1910 , 543 , 3, button="left")#drags to the calender required
 
 
+def GetBoundingBoxCoordinates():
+    weekDay = datetime.today().weekday()
+    time = datetime.now().hour()
+
+    origin , diagonalPoint = (0,0) , (0,0)
+
+    origin[0] = 120 + weekDay * 248
+    diagonalPoint = origin[0] + 248
+
+    origin[1] = 207 + (9 - time) * 81
+    diagonalPoint[1] = origin[1] + 81
+    
+
 
 def get_coordinates(): #send the coordinate for the active meeting
-    return 1242,609
+    origin , diagonalPoint = GetBoundingBoxCoordinates()
+    for x in range(origin[0] , diagonalPoint[0]):
+        for y in range(origin[1] , diagonalPoint[1]):
+            if(pixel(x,y) == 91, 95, 199):
+                return x,y
+
+    return -1 , -1
 
 
 def join_team(): #function to join a meeting
@@ -32,6 +51,10 @@ def join_team(): #function to join a meeting
     click(38 , 304) #clicks on the caleder
     sleep(3)
     x,y = get_coordinates() #returns the coordinaate of the active class
+    
+    if x == -1 and y == -1:
+        return False  
+    
     doubleClick(x,y) # clicks on the class
     sleep(8)
     click(1761,101) #clicks on the join button_1
@@ -39,6 +62,7 @@ def join_team(): #function to join a meeting
     click(1114 , 473) #clicks on the mute button
     sleep(2)
     click(1491 , 759) #clicks on the join button_2
+    return True
 
 
 
@@ -64,8 +88,7 @@ while 9 <= time_hours <= 14: #loop will run while the time is between 9am and 2p
 
     if time_hours == 9 and time_min >= 0:
         if in_meeting == False:
-            join_team()
-            in_meeting = True
+            in_meeting = join_team()
         if time_hours == 9 and time_min >= 40:
             if in_meeting == True:
                 leave_team()
@@ -74,8 +97,7 @@ while 9 <= time_hours <= 14: #loop will run while the time is between 9am and 2p
 
     elif time_hours == 10 and time_min >= 0:
         if in_meeting == False:
-            join_team()
-            in_meeting = True
+            in_meeting = join_team()
         if time_hours == 10 and time_min >= 40:
             if in_meeting == True:
                 leave_team()
@@ -84,8 +106,7 @@ while 9 <= time_hours <= 14: #loop will run while the time is between 9am and 2p
 
     elif time_hours == 11 and time_min >= 0:
         if in_meeting == False:
-            join_team()
-            in_meeting = True
+            in_meeting = join_team()
         if time_hours == 11 and time_min >= 40:
             if in_meeting == True:
                 leave_team()
@@ -94,8 +115,7 @@ while 9 <= time_hours <= 14: #loop will run while the time is between 9am and 2p
 
     elif time_hours == 12 and time_min >= 0:
         if in_meeting == False:
-            join_team()
-            in_meeting = True
+            in_meeting = join_team()
         if time_hours == 12 and time_min >= 40:
             if in_meeting == True:
                 leave_team()
@@ -104,8 +124,7 @@ while 9 <= time_hours <= 14: #loop will run while the time is between 9am and 2p
 
     elif time_hours == 13 and time_min >= 0:
         if in_meeting == False:
-            join_team()
-            in_meeting = True
+            in_meeting = join_team()
         if time_hours == 13 and time_min >= 40:
             if in_meeting == True:
                 leave_team()
